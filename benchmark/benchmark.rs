@@ -106,7 +106,7 @@ impl Serialize for NoCompression {
         W: io::Write,
         A: message::Allocator,
     {
-        serialize::write_message(write, message).map_err(|e| e.into())
+        serialize::write_message(write, message)
     }
 }
 
@@ -133,7 +133,7 @@ impl Serialize for Packed {
         W: io::Write,
         A: message::Allocator,
     {
-        serialize_packed::write_message(write, message).map_err(|e| e.into())
+        serialize_packed::write_message(write, message)
     }
 }
 
@@ -161,12 +161,18 @@ pub struct UseScratch {
     buffer2: Vec<capnp::Word>,
 }
 
-impl UseScratch {
-    pub fn new() -> UseScratch {
-        UseScratch {
+impl Default for UseScratch {
+    fn default() -> Self {
+        Self {
             buffer1: capnp::Word::allocate_zeroed_vec(SCRATCH_SIZE),
             buffer2: capnp::Word::allocate_zeroed_vec(SCRATCH_SIZE),
         }
+    }
+}
+
+impl UseScratch {
+    pub fn new() -> Self {
+        Self::default()
     }
 }
 
@@ -234,7 +240,7 @@ where
 
             {
                 let mut writer: &mut [u8] = &mut request_bytes;
-                compression.write_message(&mut writer, &mut message_req)?;
+                compression.write_message(&mut writer, &message_req)?;
             }
 
             let mut request_bytes1: &[u8] = &request_bytes;
@@ -247,7 +253,7 @@ where
 
         {
             let mut writer: &mut [u8] = &mut response_bytes;
-            compression.write_message(&mut writer, &mut message_res)?;
+            compression.write_message(&mut writer, &message_res)?;
         }
 
         let mut response_bytes1: &[u8] = &response_bytes;
@@ -289,7 +295,7 @@ where
             testcase.handle_request(request_reader, response)?;
         }
 
-        compression.write_message(&mut out_buffered, &mut message_res)?;
+        compression.write_message(&mut out_buffered, &message_res)?;
         out_buffered.flush()?;
     }
     Ok(())
@@ -320,7 +326,7 @@ where
             let request = message_req.init_root();
             testcase.setup_request(&mut rng, request)
         };
-        compression.write_message(&mut out_buffered, &mut message_req)?;
+        compression.write_message(&mut out_buffered, &message_req)?;
         out_buffered.flush()?;
 
         let message_reader = compression.read_message(&mut in_buffered, Default::default())?;
@@ -475,11 +481,11 @@ fn try_main() -> ::capnp::Result<()> {
         }
     };
 
-    let mode = Mode::parse(&*args[2])?;
+    let mode = Mode::parse(&args[2])?;
 
     match &*args[4] {
-        "none" => do_testcase2(&*args[1], mode, &*args[3], NoCompression, iters),
-        "packed" => do_testcase2(&*args[1], mode, &*args[3], Packed, iters),
+        "none" => do_testcase2(&args[1], mode, &args[3], NoCompression, iters),
+        "packed" => do_testcase2(&args[1], mode, &args[3], Packed, iters),
         s => Err(::capnp::Error::failed(format!(
             "unrecognized compression: {}",
             s

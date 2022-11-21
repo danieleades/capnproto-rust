@@ -54,10 +54,7 @@ struct SubscriptionImpl {
 
 impl SubscriptionImpl {
     fn new(id: u64, subscribers: Rc<RefCell<SubscriberMap>>) -> SubscriptionImpl {
-        SubscriptionImpl {
-            id: id,
-            subscribers: subscribers,
-        }
+        SubscriptionImpl { id, subscribers }
     }
 }
 
@@ -83,7 +80,7 @@ impl PublisherImpl {
                 next_id: 0,
                 subscribers: subscribers.clone(),
             },
-            subscribers.clone(),
+            subscribers,
         )
     }
 }
@@ -175,11 +172,11 @@ pub async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             tokio::task::spawn_local(request.send().promise.map(
                                 move |r| match r {
                                     Ok(_) => {
-                                        subscribers2.borrow_mut().subscribers.get_mut(&idx).map(
-                                            |ref mut s| {
-                                                s.requests_in_flight -= 1;
-                                            },
-                                        );
+                                        if let Some(ref mut s) =
+                                            subscribers2.borrow_mut().subscribers.get_mut(&idx)
+                                        {
+                                            s.requests_in_flight -= 1;
+                                        }
                                     }
                                     Err(e) => {
                                         println!("Got error: {:?}. Dropping subscriber.", e);

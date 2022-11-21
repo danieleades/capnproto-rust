@@ -36,7 +36,7 @@ struct ValueImpl {
 
 impl ValueImpl {
     fn new(value: f64) -> ValueImpl {
-        ValueImpl { value: value }
+        ValueImpl { value }
     }
 }
 
@@ -80,8 +80,8 @@ fn evaluate_impl(
                 let mut request = func.call_request();
                 {
                     let mut params = request.get().init_params(param_values.len() as u32);
-                    for ii in 0..param_values.len() {
-                        params.set(ii as u32, param_values[ii]);
+                    for (ii, value) in param_values.iter().enumerate() {
+                        params.set(ii as u32, *value);
                     }
                 }
                 Ok(request.send().promise.await?.get()?.get_value())
@@ -101,7 +101,7 @@ impl FunctionImpl {
         body: calculator::expression::Reader,
     ) -> ::capnp::Result<FunctionImpl> {
         let mut result = FunctionImpl {
-            param_count: param_count,
+            param_count,
             body: ::capnp_rpc::ImbuedMessageBuilder::new(::capnp::message::HeapAllocator::new()),
         };
         result.body.set_root(body)?;
@@ -199,7 +199,7 @@ impl calculator::Server for CalculatorImpl {
         let op = pry!(pry!(params.get()).get_op());
         results
             .get()
-            .set_func(capnp_rpc::new_client(OperatorImpl { op: op }));
+            .set_func(capnp_rpc::new_client(OperatorImpl { op }));
         Promise::ok(())
     }
 }
