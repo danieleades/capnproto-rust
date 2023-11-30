@@ -77,7 +77,7 @@ impl<'a, T: PrimitiveElement> Reader<'a, T> {
 }
 
 impl<'a, T: PrimitiveElement> FromPointerReader<'a> for Reader<'a, T> {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a, T>> {
@@ -194,7 +194,7 @@ impl<'a, T: PrimitiveElement> FromPointerBuilder<'a> for Builder<'a, T> {
             marker: marker::PhantomData,
         }
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a, T>> {

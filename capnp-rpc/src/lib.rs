@@ -445,7 +445,7 @@ where
         T: ::capnp::traits::FromPointerBuilder<'a>,
     {
         use capnp::traits::ImbueMut;
-        let mut root: ::capnp::any_pointer::Builder = self.builder.get_root()?;
+        let mut root: ::capnp::any_pointer::Builder = self.builder.root()?;
         root.imbue_mut(&mut self.cap_table);
         root.get_as()
     }
@@ -455,7 +455,7 @@ where
         From: ::capnp::traits::SetPointerBuilder,
     {
         use capnp::traits::ImbueMut;
-        let mut root: ::capnp::any_pointer::Builder = self.builder.get_root()?;
+        let mut root: ::capnp::any_pointer::Builder = self.builder.root()?;
         root.imbue_mut(&mut self.cap_table);
         root.set_as(value)
     }

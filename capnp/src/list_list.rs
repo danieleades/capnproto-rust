@@ -100,7 +100,7 @@ impl<'a, T> FromPointerReader<'a> for Reader<'a, T>
 where
     T: crate::traits::Owned,
 {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a, T>> {
@@ -119,14 +119,14 @@ where
     /// equal to `len()`.
     pub fn get(self, index: u32) -> Result<T::Reader<'a>> {
         assert!(index < self.len());
-        FromPointerReader::get_from_pointer(&self.reader.get_pointer_element(index), None)
+        FromPointerReader::from_pointer(&self.reader.get_pointer_element(index), None)
     }
 
     /// Gets the element at position `index`. Returns `None` if `index`
     /// is greater than or equal to `len()`.
     pub fn try_get(self, index: u32) -> Option<Result<T::Reader<'a>>> {
         if index < self.len() {
-            Some(FromPointerReader::get_from_pointer(
+            Some(FromPointerReader::from_pointer(
                 &self.reader.get_pointer_element(index),
                 None,
             ))
@@ -204,7 +204,7 @@ where
             builder: builder.init_list(Pointer, size),
         }
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a, T>> {
@@ -223,14 +223,14 @@ where
     /// equal to `len()`.
     pub fn get(self, index: u32) -> Result<T::Builder<'a>> {
         assert!(index < self.len());
-        FromPointerBuilder::get_from_pointer(self.builder.get_pointer_element(index), None)
+        FromPointerBuilder::from_pointer(self.builder.get_pointer_element(index), None)
     }
 
     /// Gets the element at position `index`. Returns `None` if `index`
     /// is greater than or equal to `len()`.
     pub fn try_get(self, index: u32) -> Option<Result<T::Builder<'a>>> {
         if index < self.len() {
-            Some(FromPointerBuilder::get_from_pointer(
+            Some(FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_element(index),
                 None,
             ))

@@ -540,7 +540,7 @@ mod tests {
         {
             let message = message::Builder::new_default();
             let test_defaults = message
-                .get_root_as_reader::<test_defaults::Reader<'_>>()
+                .root_as_reader::<test_defaults::Reader<'_>>()
                 .expect("get_root_as_reader()");
             CheckTestMessage::check_test_message(test_defaults);
         }
@@ -554,7 +554,7 @@ mod tests {
         {
             let mut message = message::Builder::new_default();
             let mut test_defaults = message
-                .get_root::<test_defaults::Builder<'_>>()
+                .root::<test_defaults::Builder<'_>>()
                 .expect("get_root()");
             test_defaults.set_bool_field(false);
             test_defaults.set_int8_field(63);
@@ -728,7 +728,7 @@ mod tests {
             big_struct
                 .set_struct_field(
                     other_message
-                        .get_root::<test_big_struct::inner::Builder<'_>>()
+                        .root::<test_big_struct::inner::Builder<'_>>()
                         .unwrap()
                         .into_reader(),
                 )
@@ -1024,7 +1024,7 @@ mod tests {
                 '_,
                 test_all_types::Owned,
                 primitive_list::Owned<u32>,
-            > = message.get_root_as_reader().unwrap();
+            > = message.root_as_reader().unwrap();
             assert_eq!(17, root.get_foo().unwrap().get_int16_field());
             let baz = root.get_bar().get_baz().unwrap();
             assert_eq!(5, baz.len());
@@ -1055,7 +1055,7 @@ mod tests {
                 primitive_list::Owned<u8>,
                 primitive_list::Owned<i16>,
                 primitive_list::Owned<u32>,
-            > = message.get_root_as_reader().unwrap();
+            > = message.root_as_reader().unwrap();
             let foo = root.get_foo().unwrap();
             assert_eq!(3, foo.len());
             assert_eq!(-1025, foo.get(1));
@@ -1104,7 +1104,7 @@ mod tests {
         {
             let message = message::Builder::new_default();
             let reader = message
-                .get_root_as_reader::<test_union_defaults::Reader<'_>>()
+                .root_as_reader::<test_union_defaults::Reader<'_>>()
                 .expect("get_root_as_reader()");
             let field = reader.get_s16s8s64s8_set().unwrap();
             let test_union::union0::U0f0s16(_) = field.get_union0().which().unwrap() else {
@@ -1211,7 +1211,7 @@ mod tests {
         let mut struct1 = message1.init_root::<test_big_struct::Builder<'_>>();
         struct1.set_uint8_field(3);
         message2.set_root(struct1.into_reader()).unwrap();
-        let struct2 = message2.get_root::<test_big_struct::Builder<'_>>().unwrap();
+        let struct2 = message2.root::<test_big_struct::Builder<'_>>().unwrap();
 
         assert_eq!(struct2.get_uint8_field(), 3u8);
     }
@@ -1230,7 +1230,7 @@ mod tests {
         }
         {
             let new_version = message
-                .get_root_as_reader::<test_new_version::Reader<'_>>()
+                .root_as_reader::<test_new_version::Reader<'_>>()
                 .unwrap();
             assert!(!new_version.has_new2());
             new_version.get_new2().unwrap();
@@ -1245,7 +1245,7 @@ mod tests {
             assert_eq!(names.get(1).get_text_field().unwrap(), "bob");
         }
         {
-            let mut new_version = message.get_root::<test_new_version::Builder<'_>>().unwrap();
+            let mut new_version = message.root::<test_new_version::Builder<'_>>().unwrap();
             assert!(!new_version.has_new2());
             new_version.reborrow().get_new2().unwrap();
             assert_eq!(
@@ -1274,7 +1274,7 @@ mod tests {
         }
         {
             let old_version = message
-                .get_root_as_reader::<test_old_version::Reader<'_>>()
+                .root_as_reader::<test_old_version::Reader<'_>>()
                 .unwrap();
             assert_eq!(old_version.get_old1(), 123);
             let names = old_version.get_old4().unwrap();
@@ -1283,7 +1283,7 @@ mod tests {
             assert_eq!(names.get(1).unwrap(), "bob");
         }
         {
-            let mut old_version = message.get_root::<test_old_version::Builder<'_>>().unwrap();
+            let mut old_version = message.root::<test_old_version::Builder<'_>>().unwrap();
             assert_eq!(old_version.reborrow().get_old1(), 123);
             let mut names = old_version.get_old4().unwrap();
             assert_eq!(names.len(), 2);
@@ -1304,7 +1304,7 @@ mod tests {
 
         {
             let new_version = message
-                .get_root::<test_new_union_version::Builder<'_>>()
+                .root::<test_new_union_version::Builder<'_>>()
                 .unwrap();
             match new_version.which().unwrap() {
                 test_new_union_version::B(n) => assert_eq!(n, 123),
@@ -1406,7 +1406,7 @@ mod tests {
 
         {
             let mut new_version: struct_list::Builder<'_, test_new_version::Owned> =
-                message.get_root().unwrap();
+                message.root().unwrap();
             assert_eq!(new_version.len(), 1);
             assert_eq!(new_version.reborrow().get(0).get_old1(), 0xab);
             assert_eq!(new_version.reborrow().get(0).get_old2().unwrap(), "hello!!");
@@ -1468,7 +1468,7 @@ mod tests {
 
         let mut message = message::Builder::new_default();
         init_test_message(message.init_root());
-        let mut root = message.get_root::<test_all_types::Builder<'_>>().unwrap();
+        let mut root = message.root::<test_all_types::Builder<'_>>().unwrap();
         CheckTestMessage::check_test_message(root.reborrow());
         CheckTestMessage::check_test_message(root.reborrow().into_reader());
 
@@ -1478,7 +1478,7 @@ mod tests {
             .allocation_strategy(::capnp::message::AllocationStrategy::FixedSize);
         let mut message2 = message::Builder::new(builder_options);
         init_test_message(message2.init_root());
-        let mut root2 = message2.get_root::<test_all_types::Builder<'_>>().unwrap();
+        let mut root2 = message2.root::<test_all_types::Builder<'_>>().unwrap();
         CheckTestMessage::check_test_message(root2.reborrow());
         CheckTestMessage::check_test_message(root2.reborrow().into_reader());
 
@@ -1501,7 +1501,7 @@ mod tests {
             all_types2
                 .set_struct_field(
                     message
-                        .get_root::<test_all_types::Builder<'_>>()
+                        .root::<test_all_types::Builder<'_>>()
                         .unwrap()
                         .into_reader(),
                 )
@@ -1527,7 +1527,7 @@ mod tests {
             let mut all_types2 = message2.init_root::<test_all_types::Builder<'_>>();
 
             all_types2
-                .set_struct_field(message.get_root_as_reader().unwrap())
+                .set_struct_field(message.root_as_reader().unwrap())
                 .unwrap();
             CheckTestMessage::check_test_message(all_types2.reborrow().get_struct_field().unwrap());
 
@@ -1753,7 +1753,7 @@ mod tests {
 
         let mut message2 = message::Builder::new_default();
         {
-            let root: test_all_types::Reader<'_> = message.get_root_as_reader().unwrap();
+            let root: test_all_types::Reader<'_> = message.root_as_reader().unwrap();
             let mut root2: test_all_types::Builder<'_> = message2.init_root();
 
             let list = root.get_u_int64_list().unwrap();
@@ -1794,7 +1794,7 @@ mod tests {
             }
         }
 
-        let root: test_lists::Reader<'_> = message.get_root_as_reader().unwrap();
+        let root: test_lists::Reader<'_> = message.root_as_reader().unwrap();
         let list = root.get_list64().unwrap();
         for ii in 0..(length >> step_exponent) {
             let jj = ii << step_exponent;
@@ -1826,7 +1826,7 @@ mod tests {
             }
         }
 
-        let root: test_lists::Reader<'_> = message.get_root_as_reader().unwrap();
+        let root: test_lists::Reader<'_> = message.root_as_reader().unwrap();
         let list = root.get_int32_list_list().unwrap();
         for ii in 0..(length >> step_exponent) {
             let jj = ii << step_exponent;
@@ -1941,7 +1941,7 @@ mod tests {
             test.set_text_field("Hello".into());
         }
         let reader = message
-            .get_root::<test_all_types::Builder<'_>>()
+            .root::<test_all_types::Builder<'_>>()
             .unwrap()
             .into_reader();
         assert_eq!(reader.get_text_field().unwrap(), "Hello");
@@ -2074,7 +2074,7 @@ mod tests {
         }
 
         let reader = message
-            .get_root_as_reader::<test_all_types::Reader<'_>>()
+            .root_as_reader::<test_all_types::Reader<'_>>()
             .unwrap();
         let structs = reader.get_struct_list().unwrap();
 
@@ -2114,7 +2114,7 @@ mod tests {
             renamed_union.init_qux();
         }
         {
-            let root: renamed_struct::Reader<'_> = message.get_root_as_reader().unwrap();
+            let root: renamed_struct::Reader<'_> = message.root_as_reader().unwrap();
             match root.which().unwrap() {
                 renamed_struct::GoodFieldName(true) => (),
                 _ => panic!("expected GoodFieldName(true)"),

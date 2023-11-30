@@ -12,7 +12,7 @@ pub fn scratch_space_heap_allocator() {
         let mut msg = message::Builder::new(allocator);
         msg.set_root("hello world!").unwrap();
 
-        let s: capnp::text::Reader = msg.get_root_as_reader().unwrap();
+        let s: capnp::text::Reader = msg.root_as_reader().unwrap();
         assert_eq!("hello world!", s);
     }
 

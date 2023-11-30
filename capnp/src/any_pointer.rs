@@ -72,7 +72,7 @@ impl<'a> Reader<'a> {
 
     #[inline]
     pub fn get_as<T: FromPointerReader<'a>>(&self) -> Result<T> {
-        FromPointerReader::get_from_pointer(&self.reader, None)
+        FromPointerReader::from_pointer(&self.reader, None)
     }
 
     #[cfg(feature = "alloc")]
@@ -100,7 +100,7 @@ impl<'a> Reader<'a> {
 }
 
 impl<'a> FromPointerReader<'a> for Reader<'a> {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a>> {
@@ -154,7 +154,7 @@ impl<'a> Builder<'a> {
     }
 
     pub fn get_as<T: FromPointerBuilder<'a>>(self) -> Result<T> {
-        FromPointerBuilder::get_from_pointer(self.builder, None)
+        FromPointerBuilder::from_pointer(self.builder, None)
     }
 
     pub fn init_as<T: FromPointerBuilder<'a>>(self) -> T {
@@ -194,7 +194,7 @@ impl<'a> FromPointerBuilder<'a> for Builder<'a> {
         }
         Builder { builder }
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a>> {

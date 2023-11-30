@@ -77,7 +77,7 @@ pub mod message {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -208,43 +208,43 @@ pub mod message {
         pub fn which(self) -> ::core::result::Result<WhichReader<'a>, ::capnp::NotInSchema> {
             match self.reader.get_data_field::<u16>(0) {
                 0 => ::core::result::Result::Ok(Unimplemented(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 1 => ::core::result::Result::Ok(Abort(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 2 => ::core::result::Result::Ok(Call(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 3 => ::core::result::Result::Ok(Return(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 4 => ::core::result::Result::Ok(Finish(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 5 => ::core::result::Result::Ok(Resolve(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 6 => ::core::result::Result::Ok(Release(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -253,7 +253,7 @@ pub mod message {
                     self.reader.get_pointer_field(0),
                 ))),
                 8 => ::core::result::Result::Ok(Bootstrap(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -262,25 +262,25 @@ pub mod message {
                     self.reader.get_pointer_field(0),
                 ))),
                 10 => ::core::result::Result::Ok(Provide(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 11 => ::core::result::Result::Ok(Accept(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 12 => ::core::result::Result::Ok(Join(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 13 => ::core::result::Result::Ok(Disembargo(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -335,7 +335,7 @@ pub mod message {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -696,43 +696,43 @@ pub mod message {
         pub fn which(self) -> ::core::result::Result<WhichBuilder<'a>, ::capnp::NotInSchema> {
             match self.builder.get_data_field::<u16>(0) {
                 0 => ::core::result::Result::Ok(Unimplemented(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 1 => ::core::result::Result::Ok(Abort(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 2 => ::core::result::Result::Ok(Call(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 3 => ::core::result::Result::Ok(Return(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 4 => ::core::result::Result::Ok(Finish(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 5 => ::core::result::Result::Ok(Resolve(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 6 => ::core::result::Result::Ok(Release(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -741,7 +741,7 @@ pub mod message {
                     self.builder.get_pointer_field(0),
                 ))),
                 8 => ::core::result::Result::Ok(Bootstrap(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -750,25 +750,25 @@ pub mod message {
                     ::capnp::any_pointer::Builder::new(self.builder.get_pointer_field(0)),
                 )),
                 10 => ::core::result::Result::Ok(Provide(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 11 => ::core::result::Result::Ok(Accept(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 12 => ::core::result::Result::Ok(Join(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 13 => ::core::result::Result::Ok(Disembargo(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -1180,7 +1180,7 @@ pub mod bootstrap {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1268,7 +1268,7 @@ pub mod bootstrap {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1496,7 +1496,7 @@ pub mod call {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1531,7 +1531,7 @@ pub mod call {
         }
         #[inline]
         pub fn get_target(self) -> ::capnp::Result<crate::rpc_capnp::message_target::Reader<'a>> {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -1550,7 +1550,7 @@ pub mod call {
         }
         #[inline]
         pub fn get_params(self) -> ::capnp::Result<crate::rpc_capnp::payload::Reader<'a>> {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -1614,7 +1614,7 @@ pub mod call {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1665,7 +1665,7 @@ pub mod call {
         }
         #[inline]
         pub fn get_target(self) -> ::capnp::Result<crate::rpc_capnp::message_target::Builder<'a>> {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -1707,7 +1707,7 @@ pub mod call {
         }
         #[inline]
         pub fn get_params(self) -> ::capnp::Result<crate::rpc_capnp::payload::Builder<'a>> {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -2002,7 +2002,7 @@ pub mod call {
         }
 
         impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &::capnp::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [::capnp::Word]>,
             ) -> ::capnp::Result<Self> {
@@ -2101,7 +2101,7 @@ pub mod call {
                     .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: ::capnp::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [::capnp::Word]>,
             ) -> ::capnp::Result<Self> {
@@ -2368,7 +2368,7 @@ pub mod return_ {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -2430,13 +2430,13 @@ pub mod return_ {
         pub fn which(self) -> ::core::result::Result<WhichReader<'a>, ::capnp::NotInSchema> {
             match self.reader.get_data_field::<u16>(3) {
                 0 => ::core::result::Result::Ok(Results(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 1 => ::core::result::Result::Ok(Exception(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -2499,7 +2499,7 @@ pub mod return_ {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -2635,13 +2635,13 @@ pub mod return_ {
         pub fn which(self) -> ::core::result::Result<WhichBuilder<'a>, ::capnp::NotInSchema> {
             match self.builder.get_data_field::<u16>(3) {
                 0 => ::core::result::Result::Ok(Results(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 1 => ::core::result::Result::Ok(Exception(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -2940,7 +2940,7 @@ pub mod finish {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -3024,7 +3024,7 @@ pub mod finish {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -3244,7 +3244,7 @@ pub mod resolve {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -3295,13 +3295,13 @@ pub mod resolve {
         pub fn which(self) -> ::core::result::Result<WhichReader<'a>, ::capnp::NotInSchema> {
             match self.reader.get_data_field::<u16>(2) {
                 0 => ::core::result::Result::Ok(Cap(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 1 => ::core::result::Result::Ok(Exception(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -3356,7 +3356,7 @@ pub mod resolve {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -3457,13 +3457,13 @@ pub mod resolve {
         pub fn which(self) -> ::core::result::Result<WhichBuilder<'a>, ::capnp::NotInSchema> {
             match self.builder.get_data_field::<u16>(2) {
                 0 => ::core::result::Result::Ok(Cap(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 1 => ::core::result::Result::Ok(Exception(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -3659,7 +3659,7 @@ pub mod release {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -3743,7 +3743,7 @@ pub mod release {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -3959,7 +3959,7 @@ pub mod disembargo {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -3990,7 +3990,7 @@ pub mod disembargo {
         }
         #[inline]
         pub fn get_target(self) -> ::capnp::Result<crate::rpc_capnp::message_target::Reader<'a>> {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -4050,7 +4050,7 @@ pub mod disembargo {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -4093,7 +4093,7 @@ pub mod disembargo {
         }
         #[inline]
         pub fn get_target(self) -> ::capnp::Result<crate::rpc_capnp::message_target::Builder<'a>> {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -4290,7 +4290,7 @@ pub mod disembargo {
         }
 
         impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &::capnp::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [::capnp::Word]>,
             ) -> ::capnp::Result<Self> {
@@ -4385,7 +4385,7 @@ pub mod disembargo {
                     .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: ::capnp::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [::capnp::Word]>,
             ) -> ::capnp::Result<Self> {
@@ -4661,7 +4661,7 @@ pub mod provide {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -4696,7 +4696,7 @@ pub mod provide {
         }
         #[inline]
         pub fn get_target(self) -> ::capnp::Result<crate::rpc_capnp::message_target::Reader<'a>> {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -4760,7 +4760,7 @@ pub mod provide {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -4811,7 +4811,7 @@ pub mod provide {
         }
         #[inline]
         pub fn get_target(self) -> ::capnp::Result<crate::rpc_capnp::message_target::Builder<'a>> {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -5032,7 +5032,7 @@ pub mod accept {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -5124,7 +5124,7 @@ pub mod accept {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -5375,7 +5375,7 @@ pub mod join {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -5410,7 +5410,7 @@ pub mod join {
         }
         #[inline]
         pub fn get_target(self) -> ::capnp::Result<crate::rpc_capnp::message_target::Reader<'a>> {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -5474,7 +5474,7 @@ pub mod join {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -5525,7 +5525,7 @@ pub mod join {
         }
         #[inline]
         pub fn get_target(self) -> ::capnp::Result<crate::rpc_capnp::message_target::Builder<'a>> {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -5746,7 +5746,7 @@ pub mod message_target {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -5787,7 +5787,7 @@ pub mod message_target {
             match self.reader.get_data_field::<u16>(2) {
                 0 => ::core::result::Result::Ok(ImportedCap(self.reader.get_data_field::<u32>(0))),
                 1 => ::core::result::Result::Ok(PromisedAnswer(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -5842,7 +5842,7 @@ pub mod message_target {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -5917,7 +5917,7 @@ pub mod message_target {
             match self.builder.get_data_field::<u16>(2) {
                 0 => ::core::result::Result::Ok(ImportedCap(self.builder.get_data_field::<u32>(0))),
                 1 => ::core::result::Result::Ok(PromisedAnswer(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -6093,7 +6093,7 @@ pub mod payload {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -6136,7 +6136,7 @@ pub mod payload {
         ) -> ::capnp::Result<
             ::capnp::struct_list::Reader<'a, crate::rpc_capnp::cap_descriptor::Owned>,
         > {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -6192,7 +6192,7 @@ pub mod payload {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -6253,7 +6253,7 @@ pub mod payload {
         ) -> ::capnp::Result<
             ::capnp::struct_list::Builder<'a, crate::rpc_capnp::cap_descriptor::Owned>,
         > {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -6454,7 +6454,7 @@ pub mod cap_descriptor {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -6513,13 +6513,13 @@ pub mod cap_descriptor {
                     ::core::result::Result::Ok(ReceiverHosted(self.reader.get_data_field::<u32>(1)))
                 }
                 4 => ::core::result::Result::Ok(ReceiverAnswer(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 5 => ::core::result::Result::Ok(ThirdPartyHosted(
-                    ::capnp::traits::FromPointerReader::get_from_pointer(
+                    ::capnp::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -6574,7 +6574,7 @@ pub mod cap_descriptor {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -6706,13 +6706,13 @@ pub mod cap_descriptor {
                     self.builder.get_data_field::<u32>(1),
                 )),
                 4 => ::core::result::Result::Ok(ReceiverAnswer(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 5 => ::core::result::Result::Ok(ThirdPartyHosted(
-                    ::capnp::traits::FromPointerBuilder::get_from_pointer(
+                    ::capnp::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -6981,7 +6981,7 @@ pub mod promised_answer {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -7020,7 +7020,7 @@ pub mod promised_answer {
         ) -> ::capnp::Result<
             ::capnp::struct_list::Reader<'a, crate::rpc_capnp::promised_answer::op::Owned>,
         > {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -7076,7 +7076,7 @@ pub mod promised_answer {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -7131,7 +7131,7 @@ pub mod promised_answer {
         ) -> ::capnp::Result<
             ::capnp::struct_list::Builder<'a, crate::rpc_capnp::promised_answer::op::Owned>,
         > {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -7335,7 +7335,7 @@ pub mod promised_answer {
         }
 
         impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &::capnp::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [::capnp::Word]>,
             ) -> ::capnp::Result<Self> {
@@ -7426,7 +7426,7 @@ pub mod promised_answer {
                     .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: ::capnp::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [::capnp::Word]>,
             ) -> ::capnp::Result<Self> {
@@ -7653,7 +7653,7 @@ pub mod third_party_cap_descriptor {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -7741,7 +7741,7 @@ pub mod third_party_cap_descriptor {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -7968,7 +7968,7 @@ pub mod exception {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -7999,7 +7999,7 @@ pub mod exception {
         }
         #[inline]
         pub fn get_reason(self) -> ::capnp::Result<::capnp::text::Reader<'a>> {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -8025,7 +8025,7 @@ pub mod exception {
         }
         #[inline]
         pub fn get_trace(self) -> ::capnp::Result<::capnp::text::Reader<'a>> {
-            ::capnp::traits::FromPointerReader::get_from_pointer(
+            ::capnp::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -8081,7 +8081,7 @@ pub mod exception {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -8124,7 +8124,7 @@ pub mod exception {
         }
         #[inline]
         pub fn get_reason(self) -> ::capnp::Result<::capnp::text::Builder<'a>> {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -8170,7 +8170,7 @@ pub mod exception {
         }
         #[inline]
         pub fn get_trace(self) -> ::capnp::Result<::capnp::text::Builder<'a>> {
-            ::capnp::traits::FromPointerBuilder::get_from_pointer(
+            ::capnp::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )

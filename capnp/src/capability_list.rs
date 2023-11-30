@@ -106,7 +106,7 @@ impl<'a, T> FromPointerReader<'a> for Reader<'a, T>
 where
     T: FromClientHook,
 {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a, T>> {
@@ -213,7 +213,7 @@ where
             builder: builder.init_list(Pointer, size),
         }
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a, T>> {

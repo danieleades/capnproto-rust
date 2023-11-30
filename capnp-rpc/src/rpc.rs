@@ -2287,7 +2287,7 @@ impl<VatId> ResultsHook for Results<VatId> {
                     }
                 }
                 Some(ResultsVariant::LocallyRedirected(ref mut message, ref mut cap_table)) => {
-                    let mut result: any_pointer::Builder = message.get_root()?;
+                    let mut result: any_pointer::Builder = message.root()?;
                     result.imbue_mut(cap_table);
                     Ok(result)
                 }
@@ -2507,7 +2507,7 @@ impl ResultsDoneHook for ResultsDone {
         use ::capnp::traits::Imbue;
         match *self.inner {
             ResultsDoneVariant::Rpc(ref message, ref cap_table) => {
-                let root: message::Reader = message.get_root_as_reader()?;
+                let root: message::Reader = message.root_as_reader()?;
                 match root.which()? {
                     message::Return(ret) => match ret?.which()? {
                         crate::rpc_capnp::return_::Results(payload) => {
@@ -2525,7 +2525,7 @@ impl ResultsDoneHook for ResultsDone {
                 }
             }
             ResultsDoneVariant::LocallyRedirected(ref message, ref cap_table) => {
-                let mut result: any_pointer::Reader = message.get_root_as_reader()?;
+                let mut result: any_pointer::Reader = message.root_as_reader()?;
                 result.imbue(cap_table);
                 Ok(result)
             }

@@ -95,7 +95,7 @@ impl<'a> TryFrom<Reader<'a>> for &'a str {
 }
 
 impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &crate::private::layout::PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a>> {
@@ -263,7 +263,7 @@ impl<'a> crate::traits::FromPointerBuilder<'a> for Builder<'a> {
     fn init_pointer(builder: crate::private::layout::PointerBuilder<'a>, size: u32) -> Builder<'a> {
         builder.init_text(size)
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: crate::private::layout::PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a>> {

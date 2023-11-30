@@ -834,9 +834,9 @@ pub fn getter_text(
 
                     if is_reader {
                         fmt!(ctx,
-                            "{capnp}::traits::FromPointerReader::get_from_pointer(&self.{member}.get_pointer_field({offset}), {default})")
+                            "{capnp}::traits::FromPointerReader::from_pointer(&self.{member}.get_pointer_field({offset}), {default})")
                     } else {
-                        fmt!(ctx,"{capnp}::traits::FromPointerBuilder::get_from_pointer(self.{member}.get_pointer_field({offset}), {default})")
+                        fmt!(ctx,"{capnp}::traits::FromPointerBuilder::from_pointer(self.{member}.get_pointer_field({offset}), {default})")
                     }
                 }
 
@@ -847,9 +847,9 @@ pub fn getter_text(
                     if !raw_type.is_parameter()? {
                         fmt!(ctx,"{capnp}::any_pointer::{module_string}::new(self.{member}.get_pointer_field({offset}))")
                     } else if is_reader {
-                        fmt!(ctx,"{capnp}::traits::FromPointerReader::get_from_pointer(&self.{member}.get_pointer_field({offset}), ::core::option::Option::None)")
+                        fmt!(ctx,"{capnp}::traits::FromPointerReader::from_pointer(&self.{member}.get_pointer_field({offset}), ::core::option::Option::None)")
                     } else {
-                        fmt!(ctx,"{capnp}::traits::FromPointerBuilder::get_from_pointer(self.{member}.get_pointer_field({offset}), ::core::option::Option::None)")
+                        fmt!(ctx,"{capnp}::traits::FromPointerBuilder::from_pointer(self.{member}.get_pointer_field({offset}), ::core::option::Option::None)")
                     }
                 }
                 _ => return Err(Error::failed("default value was of wrong type".to_string())),
@@ -2116,7 +2116,7 @@ fn generate_node(
                         Line(fmt!(ctx,"fn init_pointer(builder: {capnp}::private::layout::PointerBuilder<'a>, _size: u32) -> Self {{")),
                         indent(Line(fmt!(ctx,"builder.init_struct(<Self as {capnp}::traits::HasStructSize>::STRUCT_SIZE).into()"))),
                         line("}"),
-                        Line(fmt!(ctx,"fn get_from_pointer(builder: {capnp}::private::layout::PointerBuilder<'a>, default: ::core::option::Option<&'a [{capnp}::Word]>) -> {capnp}::Result<Self> {{")),
+                        Line(fmt!(ctx,"fn from_pointer(builder: {capnp}::private::layout::PointerBuilder<'a>, default: ::core::option::Option<&'a [{capnp}::Word]>) -> {capnp}::Result<Self> {{")),
                         indent(Line(fmt!(ctx,"::core::result::Result::Ok(builder.get_struct(<Self as {capnp}::traits::HasStructSize>::STRUCT_SIZE, default)?.into())"))),
                         line("}")
                     ]),
@@ -2210,7 +2210,7 @@ fn generate_node(
                 Line(fmt!(ctx,"impl <'a,{0}> {capnp}::traits::FromPointerReader<'a> for Reader<'a,{0}> {1} {{",
                     params.params, params.where_clause)),
                 indent(vec![
-                    Line(fmt!(ctx,"fn get_from_pointer(reader: &{capnp}::private::layout::PointerReader<'a>, default: ::core::option::Option<&'a [{capnp}::Word]>) -> {capnp}::Result<Self> {{")),
+                    Line(fmt!(ctx,"fn from_pointer(reader: &{capnp}::private::layout::PointerReader<'a>, default: ::core::option::Option<&'a [{capnp}::Word]>) -> {capnp}::Result<Self> {{")),
                     indent(line("::core::result::Result::Ok(reader.get_struct(default)?.into())")),
                     line("}")
                 ]),
@@ -2674,7 +2674,7 @@ fn generate_node(
                 Line(fmt!(ctx,"impl <'a,{0}> {capnp}::traits::FromPointerReader<'a> for Client<{0}> {1} {{",
                     params.params, params.where_clause)),
                 indent(vec![
-                        Line(fmt!(ctx,"fn get_from_pointer(reader: &{capnp}::private::layout::PointerReader<'a>, _default: ::core::option::Option<&'a [{capnp}::Word]>) -> {capnp}::Result<Self> {{")),
+                        Line(fmt!(ctx,"fn from_pointer(reader: &{capnp}::private::layout::PointerReader<'a>, _default: ::core::option::Option<&'a [{capnp}::Word]>) -> {capnp}::Result<Self> {{")),
                         indent(Line(fmt!(ctx,"::core::result::Result::Ok({capnp}::capability::FromClientHook::new(reader.get_capability()?))"))),
                         line("}")]),
                 line("}")]));
@@ -2686,7 +2686,7 @@ fn generate_node(
                             Line(fmt!(ctx,"fn init_pointer(_builder: {capnp}::private::layout::PointerBuilder<'a>, _size: u32) -> Self {{")),
                             indent(line("unimplemented!()")),
                             line("}"),
-                            Line(fmt!(ctx,"fn get_from_pointer(builder: {capnp}::private::layout::PointerBuilder<'a>, _default: ::core::option::Option<&'a [{capnp}::Word]>) -> {capnp}::Result<Self> {{")),
+                            Line(fmt!(ctx,"fn from_pointer(builder: {capnp}::private::layout::PointerBuilder<'a>, _default: ::core::option::Option<&'a [{capnp}::Word]>) -> {capnp}::Result<Self> {{")),
                             indent(Line(fmt!(ctx,"::core::result::Result::Ok({capnp}::capability::FromClientHook::new(builder.get_capability()?))"))),
                             line("}")]),
                 line("}"),

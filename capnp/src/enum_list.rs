@@ -73,7 +73,7 @@ impl<'a, T: TryFrom<u16, Error = NotInSchema>> Reader<'a, T> {
 }
 
 impl<'a, T: TryFrom<u16, Error = NotInSchema>> FromPointerReader<'a> for Reader<'a, T> {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a, T>> {
@@ -156,7 +156,7 @@ impl<'a, T: TryFrom<u16, Error = NotInSchema>> FromPointerBuilder<'a> for Builde
             marker: PhantomData,
         }
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a, T>> {

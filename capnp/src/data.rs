@@ -45,7 +45,7 @@ pub(crate) unsafe fn reader_from_raw_parts<'a>(p: *const u8, len: u32) -> Reader
 }
 
 impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a>> {
@@ -63,7 +63,7 @@ impl<'a> crate::traits::FromPointerBuilder<'a> for Builder<'a> {
     fn init_pointer(builder: PointerBuilder<'a>, size: u32) -> Builder<'a> {
         builder.init_data(size)
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a>> {

@@ -42,10 +42,8 @@ pub trait IntoInternalListReader<'a> {
 }
 
 pub trait FromPointerReader<'a>: Sized {
-    fn get_from_pointer(
-        reader: &PointerReader<'a>,
-        default: Option<&'a [crate::Word]>,
-    ) -> Result<Self>;
+    fn from_pointer(reader: &PointerReader<'a>, default: Option<&'a [crate::Word]>)
+        -> Result<Self>;
 }
 
 /// A trait to encode relationships between readers and builders.
@@ -74,7 +72,7 @@ pub trait Pipelined {
 
 pub trait FromPointerBuilder<'a>: Sized {
     fn init_pointer(builder: PointerBuilder<'a>, length: u32) -> Self;
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Self>;

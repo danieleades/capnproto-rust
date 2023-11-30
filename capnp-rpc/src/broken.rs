@@ -67,7 +67,7 @@ impl Request {
 
 impl RequestHook for Request {
     fn get(&mut self) -> any_pointer::Builder {
-        let mut result: any_pointer::Builder = self.message.get_root().unwrap();
+        let mut result: any_pointer::Builder = self.message.root().unwrap();
         result.imbue_mut(&mut self.cap_table);
         result
     }

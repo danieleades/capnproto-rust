@@ -155,7 +155,7 @@ pub mod vat_id {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -237,7 +237,7 @@ pub mod vat_id {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -434,7 +434,7 @@ pub mod provision_id {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -514,7 +514,7 @@ pub mod provision_id {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -706,7 +706,7 @@ pub mod recipient_id {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -782,7 +782,7 @@ pub mod recipient_id {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -947,7 +947,7 @@ pub mod third_party_cap_id {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1023,7 +1023,7 @@ pub mod third_party_cap_id {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1189,7 +1189,7 @@ pub mod join_key_part {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1277,7 +1277,7 @@ pub mod join_key_part {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1518,7 +1518,7 @@ pub mod join_result {
     }
 
     impl<'a> ::capnp::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &::capnp::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {
@@ -1610,7 +1610,7 @@ pub mod join_result {
                 .init_struct(<Self as ::capnp::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: ::capnp::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [::capnp::Word]>,
         ) -> ::capnp::Result<Self> {

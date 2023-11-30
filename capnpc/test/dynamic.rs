@@ -34,7 +34,7 @@ fn test_defaults() {
 
     let message = message::Builder::new_default();
     let test_defaults = message
-        .get_root_as_reader::<test_defaults::Reader<'_>>()
+        .root_as_reader::<test_defaults::Reader<'_>>()
         .expect("get_root_as_reader()");
     let root: dynamic_value::Reader<'_> = test_defaults.into();
     test_util::dynamic_check_test_message(root.downcast());
@@ -45,7 +45,7 @@ fn test_defaults_builder() {
     use crate::test_capnp::test_defaults;
 
     let mut message = message::Builder::new_default();
-    let test_defaults = message.get_root::<test_defaults::Builder<'_>>().unwrap();
+    let test_defaults = message.root::<test_defaults::Builder<'_>>().unwrap();
     let root: dynamic_value::Builder<'_> = test_defaults.into();
     test_util::dynamic_check_test_message_builder(root.downcast());
 }

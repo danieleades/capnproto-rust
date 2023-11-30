@@ -74,7 +74,7 @@ pub mod node {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -109,7 +109,7 @@ pub mod node {
         }
         #[inline]
         pub fn get_display_name(self) -> crate::Result<crate::text::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -132,7 +132,7 @@ pub mod node {
         ) -> crate::Result<
             crate::struct_list::Reader<'a, crate::schema_capnp::node::nested_node::Owned>,
         > {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -146,7 +146,7 @@ pub mod node {
             self,
         ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::annotation::Owned>>
         {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(2),
                 ::core::option::Option::None,
             )
@@ -161,7 +161,7 @@ pub mod node {
         ) -> crate::Result<
             crate::struct_list::Reader<'a, crate::schema_capnp::node::parameter::Owned>,
         > {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(5),
                 ::core::option::Option::None,
             )
@@ -233,7 +233,7 @@ pub mod node {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -281,7 +281,7 @@ pub mod node {
         }
         #[inline]
         pub fn get_display_name(self) -> crate::Result<crate::text::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -320,7 +320,7 @@ pub mod node {
         ) -> crate::Result<
             crate::struct_list::Builder<'a, crate::schema_capnp::node::nested_node::Owned>,
         > {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -353,7 +353,7 @@ pub mod node {
             self,
         ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::annotation::Owned>>
         {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(2),
                 ::core::option::Option::None,
             )
@@ -440,7 +440,7 @@ pub mod node {
         ) -> crate::Result<
             crate::struct_list::Builder<'a, crate::schema_capnp::node::parameter::Owned>,
         > {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(5),
                 ::core::option::Option::None,
             )
@@ -856,7 +856,7 @@ pub mod node {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -887,7 +887,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_name(self) -> crate::Result<crate::text::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -946,7 +946,7 @@ pub mod node {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -986,7 +986,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_name(self) -> crate::Result<crate::text::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -1146,7 +1146,7 @@ pub mod node {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -1177,7 +1177,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_name(self) -> crate::Result<crate::text::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -1240,7 +1240,7 @@ pub mod node {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -1280,7 +1280,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_name(self) -> crate::Result<crate::text::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -1464,7 +1464,7 @@ pub mod node {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -1499,7 +1499,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_doc_comment(self) -> crate::Result<crate::text::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -1517,7 +1517,7 @@ pub mod node {
                     crate::schema_capnp::node::source_info::member::Owned,
                 >,
             > {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(1),
                     ::core::option::Option::None,
                 )
@@ -1576,7 +1576,7 @@ pub mod node {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -1624,7 +1624,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_doc_comment(self) -> crate::Result<crate::text::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -1650,7 +1650,7 @@ pub mod node {
                     crate::schema_capnp::node::source_info::member::Owned,
                 >,
             > {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(1),
                     ::core::option::Option::None,
                 )
@@ -1874,7 +1874,7 @@ pub mod node {
             }
 
             impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-                fn get_from_pointer(
+                fn from_pointer(
                     reader: &crate::private::layout::PointerReader<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -1905,7 +1905,7 @@ pub mod node {
                 }
                 #[inline]
                 pub fn get_doc_comment(self) -> crate::Result<crate::text::Reader<'a>> {
-                    crate::traits::FromPointerReader::get_from_pointer(
+                    crate::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     )
@@ -1966,7 +1966,7 @@ pub mod node {
                         .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                         .into()
                 }
-                fn get_from_pointer(
+                fn from_pointer(
                     builder: crate::private::layout::PointerBuilder<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -2009,7 +2009,7 @@ pub mod node {
                 }
                 #[inline]
                 pub fn get_doc_comment(self) -> crate::Result<crate::text::Builder<'a>> {
-                    crate::traits::FromPointerBuilder::get_from_pointer(
+                    crate::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     )
@@ -2172,7 +2172,7 @@ pub mod node {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -2233,7 +2233,7 @@ pub mod node {
                 self,
             ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::field::Owned>>
             {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -2292,7 +2292,7 @@ pub mod node {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -2386,7 +2386,7 @@ pub mod node {
                 self,
             ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::field::Owned>>
             {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -2666,7 +2666,7 @@ pub mod node {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -2700,7 +2700,7 @@ pub mod node {
                 self,
             ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::enumerant::Owned>>
             {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -2759,7 +2759,7 @@ pub mod node {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -2802,7 +2802,7 @@ pub mod node {
                 self,
             ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::enumerant::Owned>>
             {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -2979,7 +2979,7 @@ pub mod node {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -3013,7 +3013,7 @@ pub mod node {
                 self,
             ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::method::Owned>>
             {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -3027,7 +3027,7 @@ pub mod node {
                 self,
             ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::superclass::Owned>>
             {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(4),
                     ::core::option::Option::None,
                 )
@@ -3086,7 +3086,7 @@ pub mod node {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -3129,7 +3129,7 @@ pub mod node {
                 self,
             ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::method::Owned>>
             {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -3165,7 +3165,7 @@ pub mod node {
             ) -> crate::Result<
                 crate::struct_list::Builder<'a, crate::schema_capnp::superclass::Owned>,
             > {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(4),
                     ::core::option::Option::None,
                 )
@@ -3363,7 +3363,7 @@ pub mod node {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -3394,7 +3394,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_type(self) -> crate::Result<crate::schema_capnp::type_::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -3405,7 +3405,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_value(self) -> crate::Result<crate::schema_capnp::value::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(4),
                     ::core::option::Option::None,
                 )
@@ -3464,7 +3464,7 @@ pub mod node {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -3504,7 +3504,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_type(self) -> crate::Result<crate::schema_capnp::type_::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -3533,7 +3533,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_value(self) -> crate::Result<crate::schema_capnp::value::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(4),
                     ::core::option::Option::None,
                 )
@@ -3724,7 +3724,7 @@ pub mod node {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -3755,7 +3755,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_type(self) -> crate::Result<crate::schema_capnp::type_::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -3862,7 +3862,7 @@ pub mod node {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -3902,7 +3902,7 @@ pub mod node {
             }
             #[inline]
             pub fn get_type(self) -> crate::Result<crate::schema_capnp::type_::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -4381,7 +4381,7 @@ pub mod field {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -4412,7 +4412,7 @@ pub mod field {
         }
         #[inline]
         pub fn get_name(self) -> crate::Result<crate::text::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -4430,7 +4430,7 @@ pub mod field {
             self,
         ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::annotation::Owned>>
         {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -4502,7 +4502,7 @@ pub mod field {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -4542,7 +4542,7 @@ pub mod field {
         }
         #[inline]
         pub fn get_name(self) -> crate::Result<crate::text::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -4572,7 +4572,7 @@ pub mod field {
             self,
         ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::annotation::Owned>>
         {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -4885,7 +4885,7 @@ pub mod field {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -4920,7 +4920,7 @@ pub mod field {
             }
             #[inline]
             pub fn get_type(self) -> crate::Result<crate::schema_capnp::type_::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(2),
                     ::core::option::Option::None,
                 )
@@ -4933,7 +4933,7 @@ pub mod field {
             pub fn get_default_value(
                 self,
             ) -> crate::Result<crate::schema_capnp::value::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -4996,7 +4996,7 @@ pub mod field {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -5044,7 +5044,7 @@ pub mod field {
             }
             #[inline]
             pub fn get_type(self) -> crate::Result<crate::schema_capnp::type_::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(2),
                     ::core::option::Option::None,
                 )
@@ -5075,7 +5075,7 @@ pub mod field {
             pub fn get_default_value(
                 self,
             ) -> crate::Result<crate::schema_capnp::value::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(3),
                     ::core::option::Option::None,
                 )
@@ -5309,7 +5309,7 @@ pub mod field {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -5392,7 +5392,7 @@ pub mod field {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -5582,7 +5582,7 @@ pub mod field {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -5669,7 +5669,7 @@ pub mod field {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -5893,7 +5893,7 @@ pub mod enumerant {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -5924,7 +5924,7 @@ pub mod enumerant {
         }
         #[inline]
         pub fn get_name(self) -> crate::Result<crate::text::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -5942,7 +5942,7 @@ pub mod enumerant {
             self,
         ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::annotation::Owned>>
         {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -5998,7 +5998,7 @@ pub mod enumerant {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -6038,7 +6038,7 @@ pub mod enumerant {
         }
         #[inline]
         pub fn get_name(self) -> crate::Result<crate::text::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -6068,7 +6068,7 @@ pub mod enumerant {
             self,
         ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::annotation::Owned>>
         {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -6275,7 +6275,7 @@ pub mod superclass {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -6310,7 +6310,7 @@ pub mod superclass {
         }
         #[inline]
         pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -6366,7 +6366,7 @@ pub mod superclass {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -6414,7 +6414,7 @@ pub mod superclass {
         }
         #[inline]
         pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -6603,7 +6603,7 @@ pub mod method {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -6634,7 +6634,7 @@ pub mod method {
         }
         #[inline]
         pub fn get_name(self) -> crate::Result<crate::text::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -6660,7 +6660,7 @@ pub mod method {
             self,
         ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::annotation::Owned>>
         {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -6671,7 +6671,7 @@ pub mod method {
         }
         #[inline]
         pub fn get_param_brand(self) -> crate::Result<crate::schema_capnp::brand::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(2),
                 ::core::option::Option::None,
             )
@@ -6682,7 +6682,7 @@ pub mod method {
         }
         #[inline]
         pub fn get_result_brand(self) -> crate::Result<crate::schema_capnp::brand::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(3),
                 ::core::option::Option::None,
             )
@@ -6697,7 +6697,7 @@ pub mod method {
         ) -> crate::Result<
             crate::struct_list::Reader<'a, crate::schema_capnp::node::parameter::Owned>,
         > {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(4),
                 ::core::option::Option::None,
             )
@@ -6753,7 +6753,7 @@ pub mod method {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -6793,7 +6793,7 @@ pub mod method {
         }
         #[inline]
         pub fn get_name(self) -> crate::Result<crate::text::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -6839,7 +6839,7 @@ pub mod method {
             self,
         ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::annotation::Owned>>
         {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -6868,7 +6868,7 @@ pub mod method {
         }
         #[inline]
         pub fn get_param_brand(self) -> crate::Result<crate::schema_capnp::brand::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(2),
                 ::core::option::Option::None,
             )
@@ -6894,7 +6894,7 @@ pub mod method {
         }
         #[inline]
         pub fn get_result_brand(self) -> crate::Result<crate::schema_capnp::brand::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(3),
                 ::core::option::Option::None,
             )
@@ -6924,7 +6924,7 @@ pub mod method {
         ) -> crate::Result<
             crate::struct_list::Builder<'a, crate::schema_capnp::node::parameter::Owned>,
         > {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(4),
                 ::core::option::Option::None,
             )
@@ -7234,7 +7234,7 @@ pub mod type_ {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -7335,7 +7335,7 @@ pub mod type_ {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -7924,7 +7924,7 @@ pub mod type_ {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -7955,7 +7955,7 @@ pub mod type_ {
             }
             #[inline]
             pub fn get_element_type(self) -> crate::Result<crate::schema_capnp::type_::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -8014,7 +8014,7 @@ pub mod type_ {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -8056,7 +8056,7 @@ pub mod type_ {
             pub fn get_element_type(
                 self,
             ) -> crate::Result<crate::schema_capnp::type_::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -8229,7 +8229,7 @@ pub mod type_ {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -8264,7 +8264,7 @@ pub mod type_ {
             }
             #[inline]
             pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -8323,7 +8323,7 @@ pub mod type_ {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -8371,7 +8371,7 @@ pub mod type_ {
             }
             #[inline]
             pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -8559,7 +8559,7 @@ pub mod type_ {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -8594,7 +8594,7 @@ pub mod type_ {
             }
             #[inline]
             pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -8653,7 +8653,7 @@ pub mod type_ {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -8701,7 +8701,7 @@ pub mod type_ {
             }
             #[inline]
             pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -8890,7 +8890,7 @@ pub mod type_ {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -8925,7 +8925,7 @@ pub mod type_ {
             }
             #[inline]
             pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -8984,7 +8984,7 @@ pub mod type_ {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -9032,7 +9032,7 @@ pub mod type_ {
             }
             #[inline]
             pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -9223,7 +9223,7 @@ pub mod type_ {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -9311,7 +9311,7 @@ pub mod type_ {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -9561,7 +9561,7 @@ pub mod type_ {
             }
 
             impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-                fn get_from_pointer(
+                fn from_pointer(
                     reader: &crate::private::layout::PointerReader<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -9652,7 +9652,7 @@ pub mod type_ {
                         .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                         .into()
                 }
-                fn get_from_pointer(
+                fn from_pointer(
                     builder: crate::private::layout::PointerBuilder<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -9924,7 +9924,7 @@ pub mod type_ {
             }
 
             impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-                fn get_from_pointer(
+                fn from_pointer(
                     reader: &crate::private::layout::PointerReader<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -10013,7 +10013,7 @@ pub mod type_ {
                         .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                         .into()
                 }
-                fn get_from_pointer(
+                fn from_pointer(
                     builder: crate::private::layout::PointerBuilder<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -10234,7 +10234,7 @@ pub mod type_ {
             }
 
             impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-                fn get_from_pointer(
+                fn from_pointer(
                     reader: &crate::private::layout::PointerReader<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -10319,7 +10319,7 @@ pub mod type_ {
                         .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                         .into()
                 }
-                fn get_from_pointer(
+                fn from_pointer(
                     builder: crate::private::layout::PointerBuilder<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -10516,7 +10516,7 @@ pub mod brand {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -10550,7 +10550,7 @@ pub mod brand {
             self,
         ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::brand::scope::Owned>>
         {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -10606,7 +10606,7 @@ pub mod brand {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -10649,7 +10649,7 @@ pub mod brand {
             self,
         ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::brand::scope::Owned>>
         {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -10829,7 +10829,7 @@ pub mod brand {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -10873,7 +10873,7 @@ pub mod brand {
             pub fn which(self) -> ::core::result::Result<WhichReader<'a>, crate::NotInSchema> {
                 match self.reader.get_data_field::<u16>(4) {
                     0 => ::core::result::Result::Ok(Bind(
-                        crate::traits::FromPointerReader::get_from_pointer(
+                        crate::traits::FromPointerReader::from_pointer(
                             &self.reader.get_pointer_field(0),
                             ::core::option::Option::None,
                         ),
@@ -10932,7 +10932,7 @@ pub mod brand {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -11017,7 +11017,7 @@ pub mod brand {
             pub fn which(self) -> ::core::result::Result<WhichBuilder<'a>, crate::NotInSchema> {
                 match self.builder.get_data_field::<u16>(4) {
                     0 => ::core::result::Result::Ok(Bind(
-                        crate::traits::FromPointerBuilder::get_from_pointer(
+                        crate::traits::FromPointerBuilder::from_pointer(
                             self.builder.get_pointer_field(0),
                             ::core::option::Option::None,
                         ),
@@ -11221,7 +11221,7 @@ pub mod brand {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -11262,7 +11262,7 @@ pub mod brand {
                 match self.reader.get_data_field::<u16>(0) {
                     0 => ::core::result::Result::Ok(Unbound(())),
                     1 => ::core::result::Result::Ok(Type(
-                        crate::traits::FromPointerReader::get_from_pointer(
+                        crate::traits::FromPointerReader::from_pointer(
                             &self.reader.get_pointer_field(0),
                             ::core::option::Option::None,
                         ),
@@ -11320,7 +11320,7 @@ pub mod brand {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -11394,7 +11394,7 @@ pub mod brand {
                 match self.builder.get_data_field::<u16>(0) {
                     0 => ::core::result::Result::Ok(Unbound(())),
                     1 => ::core::result::Result::Ok(Type(
-                        crate::traits::FromPointerBuilder::get_from_pointer(
+                        crate::traits::FromPointerBuilder::from_pointer(
                             self.builder.get_pointer_field(0),
                             ::core::option::Option::None,
                         ),
@@ -11573,7 +11573,7 @@ pub mod value {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -11653,13 +11653,13 @@ pub mod value {
                 10 => ::core::result::Result::Ok(Float32(self.reader.get_data_field::<f32>(1))),
                 11 => ::core::result::Result::Ok(Float64(self.reader.get_data_field::<f64>(1))),
                 12 => ::core::result::Result::Ok(Text(
-                    crate::traits::FromPointerReader::get_from_pointer(
+                    crate::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 13 => ::core::result::Result::Ok(Data(
-                    crate::traits::FromPointerReader::get_from_pointer(
+                    crate::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -11725,7 +11725,7 @@ pub mod value {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -11923,13 +11923,13 @@ pub mod value {
                 10 => ::core::result::Result::Ok(Float32(self.builder.get_data_field::<f32>(1))),
                 11 => ::core::result::Result::Ok(Float64(self.builder.get_data_field::<f64>(1))),
                 12 => ::core::result::Result::Ok(Text(
-                    crate::traits::FromPointerBuilder::get_from_pointer(
+                    crate::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
                 )),
                 13 => ::core::result::Result::Ok(Data(
-                    crate::traits::FromPointerBuilder::get_from_pointer(
+                    crate::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     ),
@@ -12417,7 +12417,7 @@ pub mod annotation {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -12452,7 +12452,7 @@ pub mod annotation {
         }
         #[inline]
         pub fn get_value(self) -> crate::Result<crate::schema_capnp::value::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -12463,7 +12463,7 @@ pub mod annotation {
         }
         #[inline]
         pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -12519,7 +12519,7 @@ pub mod annotation {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -12567,7 +12567,7 @@ pub mod annotation {
         }
         #[inline]
         pub fn get_value(self) -> crate::Result<crate::schema_capnp::value::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -12593,7 +12593,7 @@ pub mod annotation {
         }
         #[inline]
         pub fn get_brand(self) -> crate::Result<crate::schema_capnp::brand::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -12928,7 +12928,7 @@ pub mod capnp_version {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -13016,7 +13016,7 @@ pub mod capnp_version {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -13253,7 +13253,7 @@ pub mod code_generator_request {
     }
 
     impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-        fn get_from_pointer(
+        fn from_pointer(
             reader: &crate::private::layout::PointerReader<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -13287,7 +13287,7 @@ pub mod code_generator_request {
             self,
         ) -> crate::Result<crate::struct_list::Reader<'a, crate::schema_capnp::node::Owned>>
         {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -13305,7 +13305,7 @@ pub mod code_generator_request {
                 crate::schema_capnp::code_generator_request::requested_file::Owned,
             >,
         > {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -13318,7 +13318,7 @@ pub mod code_generator_request {
         pub fn get_capnp_version(
             self,
         ) -> crate::Result<crate::schema_capnp::capnp_version::Reader<'a>> {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(2),
                 ::core::option::Option::None,
             )
@@ -13333,7 +13333,7 @@ pub mod code_generator_request {
         ) -> crate::Result<
             crate::struct_list::Reader<'a, crate::schema_capnp::node::source_info::Owned>,
         > {
-            crate::traits::FromPointerReader::get_from_pointer(
+            crate::traits::FromPointerReader::from_pointer(
                 &self.reader.get_pointer_field(3),
                 ::core::option::Option::None,
             )
@@ -13389,7 +13389,7 @@ pub mod code_generator_request {
                 .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                 .into()
         }
-        fn get_from_pointer(
+        fn from_pointer(
             builder: crate::private::layout::PointerBuilder<'a>,
             default: ::core::option::Option<&'a [crate::Word]>,
         ) -> crate::Result<Self> {
@@ -13432,7 +13432,7 @@ pub mod code_generator_request {
             self,
         ) -> crate::Result<crate::struct_list::Builder<'a, crate::schema_capnp::node::Owned>>
         {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(0),
                 ::core::option::Option::None,
             )
@@ -13468,7 +13468,7 @@ pub mod code_generator_request {
                 crate::schema_capnp::code_generator_request::requested_file::Owned,
             >,
         > {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(1),
                 ::core::option::Option::None,
             )
@@ -13505,7 +13505,7 @@ pub mod code_generator_request {
         pub fn get_capnp_version(
             self,
         ) -> crate::Result<crate::schema_capnp::capnp_version::Builder<'a>> {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(2),
                 ::core::option::Option::None,
             )
@@ -13535,7 +13535,7 @@ pub mod code_generator_request {
         ) -> crate::Result<
             crate::struct_list::Builder<'a, crate::schema_capnp::node::source_info::Owned>,
         > {
-            crate::traits::FromPointerBuilder::get_from_pointer(
+            crate::traits::FromPointerBuilder::from_pointer(
                 self.builder.get_pointer_field(3),
                 ::core::option::Option::None,
             )
@@ -13777,7 +13777,7 @@ pub mod code_generator_request {
         }
 
         impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-            fn get_from_pointer(
+            fn from_pointer(
                 reader: &crate::private::layout::PointerReader<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -13812,7 +13812,7 @@ pub mod code_generator_request {
             }
             #[inline]
             pub fn get_filename(self) -> crate::Result<crate::text::Reader<'a>> {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -13830,7 +13830,7 @@ pub mod code_generator_request {
                     crate::schema_capnp::code_generator_request::requested_file::import::Owned,
                 >,
             > {
-                crate::traits::FromPointerReader::get_from_pointer(
+                crate::traits::FromPointerReader::from_pointer(
                     &self.reader.get_pointer_field(1),
                     ::core::option::Option::None,
                 )
@@ -13889,7 +13889,7 @@ pub mod code_generator_request {
                     .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                     .into()
             }
-            fn get_from_pointer(
+            fn from_pointer(
                 builder: crate::private::layout::PointerBuilder<'a>,
                 default: ::core::option::Option<&'a [crate::Word]>,
             ) -> crate::Result<Self> {
@@ -13937,7 +13937,7 @@ pub mod code_generator_request {
             }
             #[inline]
             pub fn get_filename(self) -> crate::Result<crate::text::Builder<'a>> {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(0),
                     ::core::option::Option::None,
                 )
@@ -13963,7 +13963,7 @@ pub mod code_generator_request {
                     crate::schema_capnp::code_generator_request::requested_file::import::Owned,
                 >,
             > {
-                crate::traits::FromPointerBuilder::get_from_pointer(
+                crate::traits::FromPointerBuilder::from_pointer(
                     self.builder.get_pointer_field(1),
                     ::core::option::Option::None,
                 )
@@ -14189,7 +14189,7 @@ pub mod code_generator_request {
             }
 
             impl<'a> crate::traits::FromPointerReader<'a> for Reader<'a> {
-                fn get_from_pointer(
+                fn from_pointer(
                     reader: &crate::private::layout::PointerReader<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -14224,7 +14224,7 @@ pub mod code_generator_request {
                 }
                 #[inline]
                 pub fn get_name(self) -> crate::Result<crate::text::Reader<'a>> {
-                    crate::traits::FromPointerReader::get_from_pointer(
+                    crate::traits::FromPointerReader::from_pointer(
                         &self.reader.get_pointer_field(0),
                         ::core::option::Option::None,
                     )
@@ -14285,7 +14285,7 @@ pub mod code_generator_request {
                         .init_struct(<Self as crate::traits::HasStructSize>::STRUCT_SIZE)
                         .into()
                 }
-                fn get_from_pointer(
+                fn from_pointer(
                     builder: crate::private::layout::PointerBuilder<'a>,
                     default: ::core::option::Option<&'a [crate::Word]>,
                 ) -> crate::Result<Self> {
@@ -14336,7 +14336,7 @@ pub mod code_generator_request {
                 }
                 #[inline]
                 pub fn get_name(self) -> crate::Result<crate::text::Builder<'a>> {
-                    crate::traits::FromPointerBuilder::get_from_pointer(
+                    crate::traits::FromPointerBuilder::from_pointer(
                         self.builder.get_pointer_field(0),
                         ::core::option::Option::None,
                     )

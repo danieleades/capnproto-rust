@@ -70,7 +70,7 @@ impl<'a> Reader<'a> {
 }
 
 impl<'a> FromPointerReader<'a> for Reader<'a> {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a>> {
@@ -155,7 +155,7 @@ impl<'a> FromPointerBuilder<'a> for Builder<'a> {
             builder: builder.init_list(Pointer, size),
         }
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a>> {

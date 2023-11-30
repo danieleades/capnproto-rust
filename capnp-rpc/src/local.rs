@@ -75,7 +75,7 @@ impl Params {
 
 impl ParamsHook for Params {
     fn get(&self) -> ::capnp::Result<any_pointer::Reader> {
-        let mut result: any_pointer::Reader = self.request.get_root_as_reader()?;
+        let mut result: any_pointer::Reader = self.request.root_as_reader()?;
         result.imbue(&self.cap_table);
         Ok(result)
     }
@@ -118,7 +118,7 @@ impl ResultsHook for Results {
                 ref mut cap_table,
                 ..
             } => {
-                let mut result: any_pointer::Builder = message.get_root()?;
+                let mut result: any_pointer::Builder = message.root()?;
                 result.imbue_mut(cap_table);
                 Ok(result)
             }
@@ -169,7 +169,7 @@ impl ResultsDoneHook for ResultsDone {
         })
     }
     fn get(&self) -> ::capnp::Result<any_pointer::Reader> {
-        let mut result: any_pointer::Reader = self.inner.message.get_root_as_reader()?;
+        let mut result: any_pointer::Reader = self.inner.message.root_as_reader()?;
         result.imbue(&self.inner.cap_table);
         Ok(result)
     }
@@ -202,7 +202,7 @@ impl Request {
 
 impl RequestHook for Request {
     fn get(&mut self) -> any_pointer::Builder {
-        let mut result: any_pointer::Builder = self.message.get_root().unwrap();
+        let mut result: any_pointer::Builder = self.message.root().unwrap();
         result.imbue_mut(&mut self.cap_table);
         result
     }

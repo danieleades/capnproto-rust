@@ -140,7 +140,7 @@ impl Serialize for Packed {
 trait Scratch<'a> {
     type Allocator: message::Allocator;
 
-    fn get_allocators(&'a mut self) -> (Self::Allocator, Self::Allocator);
+    fn allocators(&'a mut self) -> (Self::Allocator, Self::Allocator);
 }
 
 const SCRATCH_SIZE: usize = 128 * 1024;
@@ -151,7 +151,7 @@ pub struct NoScratch;
 impl<'a> Scratch<'a> for NoScratch {
     type Allocator = message::HeapAllocator;
 
-    fn get_allocators(&'a mut self) -> (Self::Allocator, Self::Allocator) {
+    fn allocators(&'a mut self) -> (Self::Allocator, Self::Allocator) {
         (message::HeapAllocator::new(), message::HeapAllocator::new())
     }
 }
@@ -179,7 +179,7 @@ impl UseScratch {
 impl<'a> Scratch<'a> for UseScratch {
     type Allocator = message::ScratchSpaceHeapAllocator<'a>;
 
-    fn get_allocators(&'a mut self) -> (Self::Allocator, Self::Allocator) {
+    fn allocators(&'a mut self) -> (Self::Allocator, Self::Allocator) {
         let Self { buffer1, buffer2 } = self;
         (
             message::ScratchSpaceHeapAllocator::new(capnp::Word::words_to_bytes_mut(buffer1)),
@@ -194,16 +194,16 @@ where
     T: TestCase,
 {
     let mut rng = common::FastRand::new();
-    let (mut allocator_req, mut allocator_res) = reuse.get_allocators();
+    let (mut allocator_req, mut allocator_res) = reuse.allocators();
     for _ in 0..iters {
         let mut message_req = message::Builder::new(&mut allocator_req);
         let mut message_res = message::Builder::new(&mut allocator_res);
 
         let expected = testcase.setup_request(&mut rng, message_req.init_root());
 
-        testcase.handle_request(message_req.get_root_as_reader()?, message_res.init_root())?;
+        testcase.handle_request(message_req.root_as_reader()?, message_res.init_root())?;
 
-        testcase.check_response(message_res.get_root_as_reader()?, expected)?;
+        testcase.check_response(message_res.root_as_reader()?, expected)?;
     }
     Ok(())
 }
@@ -222,7 +222,7 @@ where
     let mut request_bytes = vec![0u8; SCRATCH_SIZE * 8];
     let mut response_bytes = vec![0u8; SCRATCH_SIZE * 8];
     let mut rng = common::FastRand::new();
-    let (mut allocator_req, mut allocator_res) = reuse.get_allocators();
+    let (mut allocator_req, mut allocator_res) = reuse.allocators();
     for _ in 0..iters {
         let mut message_req = message::Builder::new(&mut allocator_req);
         let mut message_res = message::Builder::new(&mut allocator_res);
@@ -279,7 +279,7 @@ where
 {
     let mut out_buffered = io::BufWriter::new(&mut output);
     let mut in_buffered = io::BufReader::new(&mut input);
-    let (mut allocator_res, _) = reuse.get_allocators();
+    let (mut allocator_res, _) = reuse.allocators();
     for _ in 0..iters {
         use std::io::Write;
         let mut message_res = message::Builder::new(&mut allocator_res);
@@ -314,7 +314,7 @@ where
     let mut in_buffered = io::BufReader::new(&mut in_stream);
     let mut out_buffered = io::BufWriter::new(&mut out_stream);
     let mut rng = common::FastRand::new();
-    let (mut allocator_req, _) = reuse.get_allocators();
+    let (mut allocator_req, _) = reuse.allocators();
     for _ in 0..iters {
         use std::io::Write;
         let mut message_req = message::Builder::new(&mut allocator_req);

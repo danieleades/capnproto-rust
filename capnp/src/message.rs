@@ -455,12 +455,12 @@ where
     }
 
     /// Gets the root, interpreting it as the given type.
-    pub fn get_root<'a, T: FromPointerBuilder<'a>>(&'a mut self) -> Result<T> {
+    pub fn root<'a, T: FromPointerBuilder<'a>>(&'a mut self) -> Result<T> {
         let root = self.get_root_internal();
         root.get_as()
     }
 
-    pub fn get_root_as_reader<'a, T: FromPointerReader<'a>>(&'a self) -> Result<T> {
+    pub fn root_as_reader<'a, T: FromPointerReader<'a>>(&'a self) -> Result<T> {
         if self.arena.is_empty() {
             any_pointer::Reader::new(layout::PointerReader::new_default()).get_as()
         } else {
@@ -597,11 +597,11 @@ where
     }
 
     pub fn get_root(&mut self) -> Result<T::Builder<'_>> {
-        self.message.get_root()
+        self.message.root()
     }
 
     pub fn get_root_as_reader(&self) -> Result<T::Reader<'_>> {
-        self.message.get_root_as_reader()
+        self.message.root_as_reader()
     }
 
     pub fn set_root(&mut self, value: T::Reader<'_>) -> Result<()> {

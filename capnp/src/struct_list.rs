@@ -106,7 +106,7 @@ impl<'a, T> FromPointerReader<'a> for Reader<'a, T>
 where
     T: crate::traits::OwnedStruct,
 {
-    fn get_from_pointer(
+    fn from_pointer(
         reader: &PointerReader<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Reader<'a, T>> {
@@ -223,7 +223,7 @@ where
             builder: builder.init_struct_list(size, T::Builder::STRUCT_SIZE),
         }
     }
-    fn get_from_pointer(
+    fn from_pointer(
         builder: PointerBuilder<'a>,
         default: Option<&'a [crate::Word]>,
     ) -> Result<Builder<'a, T>> {
